@@ -13,7 +13,7 @@ module Api
 
 				render_success UsersBlueprint.render_as_hash( subject.result, view: :extended, root: :user ), status: :created
 			rescue BCrypt::Errors::InvalidHash
-				render_errors errors: [ { key: :password, messages: [ I18n.t( 'users.errors.inappropriate_password' ) ] } ]
+				render_errors errors: [ { key: :password, messages: [ ErrorMessages.inapropriate_password ] } ]
 			end
 
 			def update

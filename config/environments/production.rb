@@ -110,4 +110,7 @@ Rails.application.configure do
 	# config.active_record.database_selector = { delay: 2.seconds }
 	# config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
 	# config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+	config.jwt_secret_key = Rails.application.credentials.jwt_secret_key
+	config.jwt_token_expire_time = 1.day
 end

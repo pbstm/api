@@ -21,7 +21,7 @@ class CreateJwtToken < ActiveInteraction::Base
 	end
 
 	def encode
-		payload = { uid: @user.id, exp: 5.days.from_now.to_i }
+		payload = { uid: @user.id, exp: Rails.configuration.jwt_token_expire_time.from_now.to_i }
 		JWT.encode payload, SECRET_KEY, 'HS256'
 	end
 end

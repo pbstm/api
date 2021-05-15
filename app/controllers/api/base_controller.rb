@@ -7,6 +7,9 @@ module Api
 		end
 
 		def render_resource_errors( resource, status: :unprocessable_entity )
+			##
+			# This method is used to render errors on objects containing the method :errors
+			# This is our standard error output format.
 			result = resource.errors.attribute_names.map { | attr | { key: attr, messages: resource.errors.full_messages_for( attr ) } }
 			render_errors errors: result, status: status
 		end
