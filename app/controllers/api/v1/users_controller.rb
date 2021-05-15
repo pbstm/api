@@ -12,6 +12,8 @@ module Api
 				return render_resource_errors subject unless subject.valid?
 
 				render_success UsersBlueprint.render_as_hash( subject.result, view: :extended, root: :user ), status: :created
+			rescue BCrypt::Errors::InvalidHash
+				render_errors errors: [ { key: :password, messages: [ I18n.t( 'users.errors.inappropriate_password' ) ] } ]
 			end
 
 			def update
@@ -30,7 +32,7 @@ module Api
 
 			def login
 				subject = CreateJwtToken.run params
-				return render_errors( errors: subject.errors.messages, status: :unauthorized ) unless subject.valid?
+				return render_resource_errors subject, status: :unauthorized unless subject.valid?
 
 				render_success( { token: subject.result } )
 			end

@@ -4,5 +4,6 @@ en:
       not_found: not found
       required: is required
       wrong: is wrong
-      password_mismatch: doesn\'t match Password
+      password_mismatch: doesn't match password
       user_not_authorized: user not authorized
+      inappropriate_password: inappropriate password 

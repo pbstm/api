@@ -6,8 +6,8 @@ module Api
 			render json: { success: false, errors: errors }, status: status
 		end
 
-		def render_resource_errors( resource, status: :unprocessable_entity, forced_key: nil )
-			result = resource.errors.attribute_names.map { | attr | { key: forced_key || attr, messages: resource.errors.full_messages_for( attr ) } }
+		def render_resource_errors( resource, status: :unprocessable_entity )
+			result = resource.errors.attribute_names.map { | attr | { key: attr, messages: resource.errors.full_messages_for( attr ) } }
 			render_errors errors: result, status: status
 		end
 

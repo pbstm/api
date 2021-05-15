@@ -57,4 +57,7 @@ Rails.application.configure do
 
 	# Annotate rendered view with file names.
 	# config.action_view.annotate_rendered_view_with_filenames = true
+
+	# config jwt_secret_key
+	config.jwt_secret_key = 'ch6jdh74wg460jh4dge6jfgyt63jt24e'
 end
