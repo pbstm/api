@@ -47,7 +47,7 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
 		end
 
 		it 'update password without current_password' do
-			params = {	password: '123456' }
+			params = { password: '123456' }
 			put_json '/api/v1/profile/update', headers: auth_headers, params: params
 			is_expected.to eq(
 				'success' => false,
@@ -56,7 +56,7 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
 		end
 
 		it 'update password without password_confirmation' do
-			params = {	password: '123456',	current_password: '123123' }
+			params = { password: '123456',	current_password: '123123' }
 			put_json '/api/v1/profile/update', headers: auth_headers, params: params
 			is_expected.to eq(
 				'success' => false,
