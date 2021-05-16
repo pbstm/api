@@ -195,7 +195,7 @@ Layout/FirstHashElementIndentation:
 
 Layout/IndentationStyle:
   Enabled: true
-  EnforcedStyle: tabs
+  EnforcedStyle: spaces
 
 Layout/IndentationWidth:
   Enabled: false

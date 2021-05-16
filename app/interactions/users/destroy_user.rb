@@ -1,9 +1,9 @@
 module Users
-	class DestroyUser < ActiveInteraction::Base
-		object :user
+  class DestroyUser < ActiveInteraction::Base
+    object :user
 
-		def execute
-			user.destroy
-		end
-	end
+    def execute
+      user.destroy
+    end
+  end
 end

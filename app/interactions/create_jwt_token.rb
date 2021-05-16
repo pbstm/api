@@ -1,27 +1,27 @@
 class CreateJwtToken < ActiveInteraction::Base
-	SECRET_KEY = Rails.configuration.jwt_secret_key
+  SECRET_KEY = Rails.configuration.jwt_secret_key
 
-	string :email
+  string :email
 
-	string :password
+  string :password
 
-	validate :check_user
+  validate :check_user
 
-	def execute
-		return unless @user
+  def execute
+    return unless @user
 
-		encode
-	end
+    encode
+  end
 
-	private
+  private
 
-	def check_user
-		@user = User.find_by( email: email )&.authenticate( password )
-		errors.add :login, 'wrong email or password' unless @user
-	end
+  def check_user
+    @user = User.find_by( email: email )&.authenticate( password )
+    errors.add :login, 'wrong email or password' unless @user
+  end
 
-	def encode
-		payload = { uid: @user.id, exp: Rails.configuration.jwt_token_expire_time.from_now.to_i }
-		JWT.encode payload, SECRET_KEY, 'HS256'
-	end
+  def encode
+    payload = { uid: @user.id, exp: Rails.configuration.jwt_token_expire_time.from_now.to_i }
+    JWT.encode payload, SECRET_KEY, 'HS256'
+  end
 end
