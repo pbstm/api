@@ -6,6 +6,7 @@ module Users
     string :password, default: nil
     string :password_confirmation, default: nil
     string :current_password, default: nil
+    string :avatar, default: nil
 
     validate :check_current_password
 
@@ -13,6 +14,8 @@ module Users
       return if errors.messages.present?
 
       errors.merge! user.errors unless user.update inputs.without( :user, :current_password ).compact
+      #user.avatar = params[:file]
+      errors.merge! user.errors unless user.avatar
     end
 
     def check_current_password

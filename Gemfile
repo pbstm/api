@@ -22,6 +22,10 @@ gem 'active_interaction', '~> 4.0'
 
 gem 'blueprinter', '~> 0.25.3'
 
+gem 'carrierwave', '~> 2.0'
+
+gem 'mini_magick'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

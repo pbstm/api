@@ -4,6 +4,7 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
   let!( :user ) { create :user }
   let( :token ) { jwt_token uid: user.id }
   let( :auth_headers ) { { 'Authorization' => token } }
+  let( :avatar ) { user.avatar }
 
   it_behaves_like 'unauthorized', :put, '/api/v1/profile/update'
 

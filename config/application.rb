@@ -12,6 +12,7 @@ require 'action_mailbox/engine'
 require 'action_text/engine'
 require 'action_view/railtie'
 require 'action_cable/engine'
+require 'carrierwave'
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
