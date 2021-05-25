@@ -14,7 +14,7 @@ module Users
       return if errors.messages.present?
 
       errors.merge! user.errors unless user.update inputs.without( :user, :current_password ).compact
-      #user.avatar = params[:file]
+      # user.avatar = params[:file]
       errors.merge! user.errors unless user.avatar
     end
 
