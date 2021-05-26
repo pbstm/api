@@ -1,0 +1,40 @@
+
+
+name: backend-ci
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:11.5
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5       
+
+    steps:
+      - uses: actions/checkout@v1      
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.0
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install        
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Build and run tests
+        env:
+          DATABASE_URL: postgres://postgres:@localhost:5432/api_test        
+          RAILS_ENV: test
+        run: |
+          bundle exec rubocop
+          sudo apt-get -yqq install libpq-dev          
+          bundle exec rails db:test:prepare
+          bundle exec rake
