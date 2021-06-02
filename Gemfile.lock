@@ -208,7 +208,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     ssrf_filter (1.0.7)
     thor (1.1.0)
     tzinfo (2.0.4)
@@ -243,7 +242,6 @@ DEPENDENCIES
   rubocop-performance
   shoulda-matchers
   spring
-  sqlite3 (~> 1.4)
 
 RUBY VERSION
    ruby 3.0.0p0
