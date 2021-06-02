@@ -3,6 +3,7 @@ module Users
     object :user
     string :name, default: nil
     string :email, default: nil
+    file :avatar, default: nil
     string :password, default: nil
     string :password_confirmation, default: nil
     string :current_password, default: nil
