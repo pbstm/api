@@ -7,6 +7,7 @@ class UsersBlueprint < Blueprinter::Base
 
   view :extended do
     include_view :normal
+    field :avatar
     field :created_at
     field :updated_at
   end
