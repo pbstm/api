@@ -23,7 +23,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
-  process resize_to_fill: [150, 150]
+  process resize_to_fill: [ 150, 150 ]
   #
   # def scale(width, height)
   #   # do something
@@ -37,7 +37,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:
