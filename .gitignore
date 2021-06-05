@@ -25,3 +25,12 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+node_modules
+public/uploads
+public/docs
+
+.DS_Store
+.env
+.idea
+.rvmrc

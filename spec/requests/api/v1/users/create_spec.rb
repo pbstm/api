@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /api/v1/sign_up', type: :request do
+  include Docs::V1::Users::Api
+  include Docs::V1::Users::Sign_up
+
   let!( :params ) do
     {
       name: Faker::Name.name,
@@ -19,7 +22,7 @@ RSpec.describe 'POST /api/v1/sign_up', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns success' do
+      it 'returns success', :dox do
         user = User.last
         is_expected.to eq(
           'success' => true,
@@ -35,7 +38,7 @@ RSpec.describe 'POST /api/v1/sign_up', type: :request do
     end
   end
 
-  context 'returns errors' do
+  context 'returns errors', :dox do
     before { post_json '/api/v1/sign_up' }
 
     subject { response }

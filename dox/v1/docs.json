@@ -1,0 +1,771 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Documentation",
+    "description": "",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/sign_up": {
+      "post": {
+        "summary": "User registration",
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "example": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
+              "examples": {
+                "returns success": {
+                  "summary": "returns success",
+                  "value": {
+                    "name": "Roderick Rice",
+                    "email": "gilberto.rice@pouros.io",
+                    "password": "123123",
+                    "password_confirmation": "123123"
+                  }
+                },
+                "is expected to respond with status code :unprocessable_entity (422)": {
+                  "summary": "is expected to respond with status code :unprocessable_entity (422)",
+                  "value": {
+                  }
+                },
+                "without name": {
+                  "summary": "without name",
+                  "value": {
+                    "name": "",
+                    "email": "lasandra_schmeler@davis.org",
+                    "password": "123123",
+                    "password_confirmation": "123123"
+                  }
+                },
+                "without password": {
+                  "summary": "without password",
+                  "value": {
+                    "name": "India White",
+                    "email": "dwana.schinner@abernathy.org",
+                    "password": "",
+                    "password_confirmation": "123123"
+                  }
+                },
+                "when the password is less than 6 characters": {
+                  "summary": "when the password is less than 6 characters",
+                  "value": {
+                    "name": "Fabian Little",
+                    "email": "jules.ratke@hand-lebsack.co",
+                    "password": "12345",
+                    "password_confirmation": "12345"
+                  }
+                },
+                "without password_confirmation": {
+                  "summary": "without password_confirmation",
+                  "value": {
+                    "name": "Magan Jacobi",
+                    "email": "aron_schuppe@beatty.com",
+                    "password": "123123",
+                    "password_confirmation": ""
+                  }
+                },
+                "when the password is more than 72 characters": {
+                  "summary": "when the password is more than 72 characters",
+                  "value": {
+                    "name": "Gale Auer",
+                    "email": "colton.jacobi@donnelly.com",
+                    "password": "1111111111111111111111111111111111111111111111111111111111111111111111111",
+                    "password_confirmation": "1111111111111111111111111111111111111111111111111111111111111111111111111"
+                  }
+                },
+                "when the password is more than 511 characters": {
+                  "summary": "when the password is more than 511 characters",
+                  "value": {
+                    "name": "Danuta Weimann II",
+                    "email": "beverley@langworth.net",
+                    "password": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+                    "password_confirmation": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
+                  }
+                },
+                "when the email is incorrect": {
+                  "summary": "when the email is incorrect",
+                  "value": {
+                    "name": "Myrtis Koss MD",
+                    "email": "asdasd",
+                    "password": "123123",
+                    "password_confirmation": "123123"
+                  }
+                },
+                "when email is already in use ": {
+                  "summary": "when email is already in use ",
+                  "value": {
+                    "name": "Msgr. Carlton Sauer",
+                    "email": "lakenya@kling-feil.info",
+                    "password": "123123",
+                    "password_confirmation": "123123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns success": {
+                    "summary": "returns success",
+                    "value": {
+                      "success": true,
+                      "user": {
+                        "id": 1,
+                        "name": "Roderick Rice",
+                        "email": "gilberto.rice@pouros.io",
+                        "created_at": "2021-06-05T14:19:33+00:00",
+                        "updated_at": "2021-06-05T14:19:33+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "is expected to respond with status code :unprocessable_entity (422)": {
+                    "summary": "is expected to respond with status code :unprocessable_entity (422)",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "name",
+                          "messages": [
+                            "Name is required"
+                          ]
+                        },
+                        {
+                          "key": "email",
+                          "messages": [
+                            "Email is required"
+                          ]
+                        },
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password is required"
+                          ]
+                        },
+                        {
+                          "key": "password_confirmation",
+                          "messages": [
+                            "Password confirmation is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "without name": {
+                    "summary": "without name",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "name",
+                          "messages": [
+                            "Name can't be blank"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "without password": {
+                    "summary": "without password",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password can't be blank",
+                            "Password is too short (minimum is 6 characters)"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when the password is less than 6 characters": {
+                    "summary": "when the password is less than 6 characters",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password is too short (minimum is 6 characters)"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "without password_confirmation": {
+                    "summary": "without password_confirmation",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password_confirmation",
+                          "messages": [
+                            "Password confirmation doesn't match Password"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when the password is more than 72 characters": {
+                    "summary": "when the password is more than 72 characters",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password is too long (maximum is 72 characters)"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when the password is more than 511 characters": {
+                    "summary": "when the password is more than 511 characters",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password",
+                          "messages": [
+                            "inappropriate password"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when the email is incorrect": {
+                    "summary": "when the email is incorrect",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "email",
+                          "messages": [
+                            "Email is invalid"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when email is already in use ": {
+                    "summary": "when email is already in use ",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "email",
+                          "messages": [
+                            "Email has already been taken"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/profile/destroy": {
+      "delete": {
+        "summary": "Destroy current user",
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "example": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjN9.D7ps5D-TNBHiIMzjhmIJoN8CJYVZ_QJH0c3p4cWbdxQ"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "example": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
+              "examples": {
+                "returns success true": {
+                  "summary": "returns success true",
+                  "value": {
+                  }
+                },
+                "returns errors": {
+                  "summary": "returns errors",
+                  "value": {
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns success true": {
+                    "summary": "returns success true",
+                    "value": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns errors": {
+                    "summary": "returns errors",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "user",
+                          "messages": [
+                            "user not authorized"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sign_in": {
+      "post": {
+        "summary": "User login",
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "example": "application/json"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "example": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
+              "examples": {
+                "returns success": {
+                  "summary": "returns success",
+                  "value": {
+                    "email": "dino@bergstrom-cassin.name",
+                    "password": "123123"
+                  }
+                },
+                "is expected to respond with status code :unauthorized (401)": {
+                  "summary": "is expected to respond with status code :unauthorized (401)",
+                  "value": {
+                  }
+                },
+                "without email": {
+                  "summary": "without email",
+                  "value": {
+                    "password": "123123"
+                  }
+                },
+                "without password": {
+                  "summary": "without password",
+                  "value": {
+                    "email": "nathaniel@harris-barton.org"
+                  }
+                },
+                "when password or email incorrect": {
+                  "summary": "when password or email incorrect",
+                  "value": {
+                    "email": "zane_blanda@welch.name",
+                    "password": "xxx"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns success": {
+                    "summary": "returns success",
+                    "value": {
+                      "success": true,
+                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjUsImV4cCI6MTYyMzMzNDc3M30.eJ972HQU0_dKvVTorpd6fkkRZ4x6GbISogpdoce56Pg"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "is expected to respond with status code :unauthorized (401)": {
+                    "summary": "is expected to respond with status code :unauthorized (401)",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "email",
+                          "messages": [
+                            "Email is required"
+                          ]
+                        },
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "without email": {
+                    "summary": "without email",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "email",
+                          "messages": [
+                            "Email is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "without password": {
+                    "summary": "without password",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password",
+                          "messages": [
+                            "Password is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when password or email incorrect": {
+                    "summary": "when password or email incorrect",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "login",
+                          "messages": [
+                            "Login wrong email or password"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/profile/show": {
+      "get": {
+        "summary": "Show current user profile",
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEwfQ.oGHWUHSkNet431gUw3ooKAKqrbLFMvRyQPDHoeMt2W8"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "example": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns user info": {
+                    "summary": "returns user info",
+                    "value": {
+                      "success": true,
+                      "user": {
+                        "id": 10,
+                        "name": "Candance Dach",
+                        "email": "rosalind@botsford.info",
+                        "created_at": "2021-06-05T14:19:33+00:00",
+                        "updated_at": "2021-06-05T14:19:33+00:00"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/profile/update": {
+      "put": {
+        "summary": "Update current user profile",
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "example": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjExfQ.q-hJQEZtnGZgH4ne8pnS4A4nBWUfHUdKNz1qJx4CJp0"
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "example": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
+              "examples": {
+                "returns with params": {
+                  "summary": "returns with params",
+                  "value": {
+                    "name": "vasya",
+                    "email": "vasya@mail.com",
+                    "current_password": "123123",
+                    "password": "123qwe",
+                    "password_confirmation": "123qwe"
+                  }
+                },
+                "update email without current_password": {
+                  "summary": "update email without current_password",
+                  "value": {
+                    "email": "vasya@mail.com"
+                  }
+                },
+                "update password without current_password": {
+                  "summary": "update password without current_password",
+                  "value": {
+                    "password": "123456"
+                  }
+                },
+                "update password without password_confirmation": {
+                  "summary": "update password without password_confirmation",
+                  "value": {
+                    "password": "123456",
+                    "current_password": "123123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "returns with params": {
+                    "summary": "returns with params",
+                    "value": {
+                      "success": true
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json; charset=utf-8": {
+                "examples": {
+                  "update email without current_password": {
+                    "summary": "update email without current_password",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "current_password",
+                          "messages": [
+                            "Current password is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "update password without current_password": {
+                    "summary": "update password without current_password",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "current_password",
+                          "messages": [
+                            "Current password is required"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "update password without password_confirmation": {
+                    "summary": "update password without password_confirmation",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "password_confirmation",
+                          "messages": [
+                            "Password confirmation doesn't match password"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "application/json; charset=utf-8"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": ""
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Users",
+      "tags": [
+        "Users"
+      ]
+    }
+  ]
+}
