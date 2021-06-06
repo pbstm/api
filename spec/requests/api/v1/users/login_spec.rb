@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /api/v1/sign_in', type: :request do
+  include Docs::V1::Users::Api
+  include Docs::V1::Users::Sign_in
+
   let!( :user ) { create :user }
   let!( :params ) { { email: user.email, password: '123123' } }
 
@@ -14,7 +17,7 @@ RSpec.describe 'POST /api/v1/sign_in', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns success' do
+      it 'returns success', :dox do
         is_expected.to include( 'success' => true )
       end
     end
@@ -26,7 +29,7 @@ RSpec.describe 'POST /api/v1/sign_in', type: :request do
     end
   end
 
-  context 'returns errors' do
+  context 'returns errors', :dox do
     before { post_json '/api/v1/sign_in' }
 
     subject { response }

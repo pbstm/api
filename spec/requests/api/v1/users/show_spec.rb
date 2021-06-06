@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'GET /api/v1/profile/show', type: :request do
+  include Docs::V1::Users::Api
+  include Docs::V1::Users::Show
+
   let!( :user ) { create :user }
   let( :token ) { jwt_token uid: user.id }
   let( :auth_headers ) { { 'Authorization' => token } }
@@ -17,7 +20,7 @@ RSpec.describe 'GET /api/v1/profile/show', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns user info' do
+      it 'returns user info', :dox do
         user = User.last
         is_expected.to eq(
           'success' => true,

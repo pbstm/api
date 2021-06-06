@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'PUT /api/v1/profile/update', type: :request do
+  include Docs::V1::Users::Api
+  include Docs::V1::Users::Update
+
   let!( :user ) { create :user }
   let( :token ) { jwt_token uid: user.id }
   let( :auth_headers ) { { 'Authorization' => token } }
@@ -21,7 +24,7 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
         is_expected.to eq( 'success' => true	)
       end
 
-      it 'returns with params' do
+      it 'returns with params', :dox do
         params = {
           name: 'vasya',
           email: 'vasya@mail.com',
@@ -35,7 +38,7 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
     end
   end
 
-  context 'returns errors with params' do
+  context 'returns errors with params', :dox do
     subject { json }
     it 'update email without current_password' do
       params = { email: 'vasya@mail.com' }

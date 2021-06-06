@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'DELETE /api/v1/profile/destroy', type: :request do
+  include Docs::V1::Users::Api
+  include Docs::V1::Users::Destroy
+
   let!( :user ) { create :user }
   let( :token ) { jwt_token uid: user.id }
   let( :auth_headers ) { { 'Authorization' => token } }
@@ -17,7 +20,7 @@ RSpec.describe 'DELETE /api/v1/profile/destroy', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns success true' do
+      it 'returns success true', :dox do
         is_expected.to eq( 'success' => true	)
       end
     end
@@ -34,7 +37,7 @@ RSpec.describe 'DELETE /api/v1/profile/destroy', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns errors' do
+      it 'returns errors', :dox do
         is_expected.to eq(
           'success' => false,
           'errors' => [ { 'key' => 'user', 'messages' => [ 'user not authorized' ] } ]
