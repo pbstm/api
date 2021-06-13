@@ -9,7 +9,7 @@ module Helpers
     end
 
     def put_multipart( url, params: {}, headers: {} )
-      put url, params: params.to_json, headers: headers.merge( 'Content-Type' => 'multipart/form-data' )
+      put url, params: params, headers: headers.merge( 'Content-Type' => 'multipart/form-data' )
     end
 
     def put_json( url, params: {}, headers: {} )

@@ -19,6 +19,7 @@ end
 
 RSpec.configure do | config |
   config.include Helpers::DateFormat
+  config.include Helpers::FixtureFiles
   config.include Helpers::Request, type: :request
   config.include Helpers::Responses, type: :request
 

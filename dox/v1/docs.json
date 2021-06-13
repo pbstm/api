@@ -32,8 +32,8 @@
                 "returns success": {
                   "summary": "returns success",
                   "value": {
-                    "name": "Roderick Rice",
-                    "email": "gilberto.rice@pouros.io",
+                    "name": "Oren Crona",
+                    "email": "allena@purdy.co",
                     "password": "123123",
                     "password_confirmation": "123123"
                   }
@@ -47,7 +47,7 @@
                   "summary": "without name",
                   "value": {
                     "name": "",
-                    "email": "lasandra_schmeler@davis.org",
+                    "email": "venessa_dubuque@mcclure.com",
                     "password": "123123",
                     "password_confirmation": "123123"
                   }
@@ -55,8 +55,8 @@
                 "without password": {
                   "summary": "without password",
                   "value": {
-                    "name": "India White",
-                    "email": "dwana.schinner@abernathy.org",
+                    "name": "Emmanuel O'Connell",
+                    "email": "shaquita@kozey-kulas.com",
                     "password": "",
                     "password_confirmation": "123123"
                   }
@@ -64,8 +64,8 @@
                 "when the password is less than 6 characters": {
                   "summary": "when the password is less than 6 characters",
                   "value": {
-                    "name": "Fabian Little",
-                    "email": "jules.ratke@hand-lebsack.co",
+                    "name": "Sen. Thao Keebler",
+                    "email": "korey@weissnat-konopelski.name",
                     "password": "12345",
                     "password_confirmation": "12345"
                   }
@@ -73,8 +73,8 @@
                 "without password_confirmation": {
                   "summary": "without password_confirmation",
                   "value": {
-                    "name": "Magan Jacobi",
-                    "email": "aron_schuppe@beatty.com",
+                    "name": "Patrick Considine",
+                    "email": "marcell@rippin.biz",
                     "password": "123123",
                     "password_confirmation": ""
                   }
@@ -82,8 +82,8 @@
                 "when the password is more than 72 characters": {
                   "summary": "when the password is more than 72 characters",
                   "value": {
-                    "name": "Gale Auer",
-                    "email": "colton.jacobi@donnelly.com",
+                    "name": "Tristan Thompson",
+                    "email": "derrick@boehm.com",
                     "password": "1111111111111111111111111111111111111111111111111111111111111111111111111",
                     "password_confirmation": "1111111111111111111111111111111111111111111111111111111111111111111111111"
                   }
@@ -91,8 +91,8 @@
                 "when the password is more than 511 characters": {
                   "summary": "when the password is more than 511 characters",
                   "value": {
-                    "name": "Danuta Weimann II",
-                    "email": "beverley@langworth.net",
+                    "name": "Alysha Marquardt Esq.",
+                    "email": "valentin@howell-doyle.info",
                     "password": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
                     "password_confirmation": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
                   }
@@ -100,7 +100,7 @@
                 "when the email is incorrect": {
                   "summary": "when the email is incorrect",
                   "value": {
-                    "name": "Myrtis Koss MD",
+                    "name": "Erik Smitham PhD",
                     "email": "asdasd",
                     "password": "123123",
                     "password_confirmation": "123123"
@@ -109,8 +109,8 @@
                 "when email is already in use ": {
                   "summary": "when email is already in use ",
                   "value": {
-                    "name": "Msgr. Carlton Sauer",
-                    "email": "lakenya@kling-feil.info",
+                    "name": "Ilda Powlowski Esq.",
+                    "email": "salvador_raynor@franecki.io",
                     "password": "123123",
                     "password_confirmation": "123123"
                   }
@@ -131,10 +131,11 @@
                       "success": true,
                       "user": {
                         "id": 1,
-                        "name": "Roderick Rice",
-                        "email": "gilberto.rice@pouros.io",
-                        "created_at": "2021-06-05T14:19:33+00:00",
-                        "updated_at": "2021-06-05T14:19:33+00:00"
+                        "name": "Oren Crona",
+                        "email": "allena@purdy.co",
+                        "created_at": "2021-06-13T11:12:53+00:00",
+                        "updated_at": "2021-06-13T11:12:53+00:00",
+                        "avatar_url": null
                       }
                     }
                   }
@@ -429,7 +430,7 @@
                 "returns success": {
                   "summary": "returns success",
                   "value": {
-                    "email": "dino@bergstrom-cassin.name",
+                    "email": "chase@welch.name",
                     "password": "123123"
                   }
                 },
@@ -447,13 +448,13 @@
                 "without password": {
                   "summary": "without password",
                   "value": {
-                    "email": "nathaniel@harris-barton.org"
+                    "email": "cedrick@pollich.io"
                   }
                 },
                 "when password or email incorrect": {
                   "summary": "when password or email incorrect",
                   "value": {
-                    "email": "zane_blanda@welch.name",
+                    "email": "evan.prohaska@kautzer-ferry.io",
                     "password": "xxx"
                   }
                 }
@@ -471,7 +472,7 @@
                     "summary": "returns success",
                     "value": {
                       "success": true,
-                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjUsImV4cCI6MTYyMzMzNDc3M30.eJ972HQU0_dKvVTorpd6fkkRZ4x6GbISogpdoce56Pg"
+                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjUsImV4cCI6MTYyNDAxNDc3NH0.0Gif7Bb7vArZEL7mvEuo9uQHs-Bfij7CpeLCuDt8ATA"
                     }
                   }
                 }
@@ -593,10 +594,11 @@
                       "success": true,
                       "user": {
                         "id": 10,
-                        "name": "Candance Dach",
-                        "email": "rosalind@botsford.info",
-                        "created_at": "2021-06-05T14:19:33+00:00",
-                        "updated_at": "2021-06-05T14:19:33+00:00"
+                        "name": "Mallory Homenick DC",
+                        "email": "kendall_ward@koepp-miller.io",
+                        "created_at": "2021-06-13T11:12:54+00:00",
+                        "updated_at": "2021-06-13T11:12:54+00:00",
+                        "avatar_url": "http://localhost:3010/uploads/user/avatar/10/7d5f0166dc9289b30f3c2f0ccd21c9b1518bd5a0.jpg"
                       }
                     }
                   }
@@ -623,7 +625,7 @@
           {
             "name": "Content-Type",
             "in": "header",
-            "example": "application/json"
+            "example": "multipart/form-data; boundary=----------XnJLe9ZIbbGUYtzPQJ16u1"
           },
           {
             "name": "Authorization",
@@ -642,13 +644,7 @@
               "examples": {
                 "returns with params": {
                   "summary": "returns with params",
-                  "value": {
-                    "name": "vasya",
-                    "email": "vasya@mail.com",
-                    "current_password": "123123",
-                    "password": "123qwe",
-                    "password_confirmation": "123qwe"
-                  }
+                  "value": "{\n  \"name\": \"vasya\",\n  \"email\": \"vasya@mail.com\",\n  \"current_password\": \"123123\",\n  \"password\": \"123qwe\",\n  \"password_confirmation\": \"123qwe\",\n  \"avatar\": {\n    \"filename\": \"test.jpg\",\n    \"type\": \"text/plain\",\n    \"name\": \"avatar\",\n    \"tempfile\": \"#<File:0x000056372af0e788>\",\n    \"head\": \"Content-Disposition: form-data; name=\\\"avatar\\\"; filename=\\\"test.jpg\\\"\\r\\nContent-Type: text/plain\\r\\nContent-Length: 107\\r\\n\"\n  }\n}"
                 },
                 "update email without current_password": {
                   "summary": "update email without current_password",
