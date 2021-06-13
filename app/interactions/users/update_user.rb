@@ -6,6 +6,7 @@ module Users
     string :password, default: nil
     string :password_confirmation, default: nil
     string :current_password, default: nil
+    file :avatar, default: nil
 
     validate :check_current_password
 

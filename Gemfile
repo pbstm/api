@@ -6,6 +6,8 @@ ruby '3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use postgresql as the database for Active Record
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -21,6 +23,10 @@ gem 'jwt', '~> 2.2', '>= 2.2.3'
 gem 'active_interaction', '~> 4.0'
 
 gem 'blueprinter', '~> 0.25.3'
+
+gem 'carrierwave', '~> 2.0'
+
+gem 'mini_magick'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

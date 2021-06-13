@@ -9,5 +9,6 @@ class UsersBlueprint < Blueprinter::Base
     include_view :normal
     field :created_at
     field :updated_at
+    field :avatar_url
   end
 end

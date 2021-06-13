@@ -1,0 +1,7 @@
+{
+  "name": "pbs-api",
+  "private": true,
+  "dependencies": {
+    "redoc-cli": "^0.12.1"
+  }
+}
