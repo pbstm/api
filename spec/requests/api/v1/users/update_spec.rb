@@ -30,9 +30,10 @@ RSpec.describe 'PUT /api/v1/profile/update', type: :request do
           email: 'vasya@mail.com',
           current_password: '123123',
           password: '123qwe',
-          password_confirmation: '123qwe'
+          password_confirmation: '123qwe',
+          avatar: Rack::Test::UploadedFile.new( 'spec/fixtures/files/test.jpg' )
         }
-        put_json '/api/v1/profile/update', headers: auth_headers, params: params
+        put_multipart '/api/v1/profile/update', headers: auth_headers, params: params
         is_expected.to eq( 'success' => true	)
       end
     end

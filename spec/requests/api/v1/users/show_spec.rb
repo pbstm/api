@@ -29,7 +29,8 @@ RSpec.describe 'GET /api/v1/profile/show', type: :request do
             'name' => user.name,
             'email' => user.email,
             'updated_at' => rfc3339( user.updated_at ),
-            'created_at' => rfc3339( user.created_at )
+            'created_at' => rfc3339( user.created_at ),
+            'avatar_url' => user.avatar.url
           }
         )
       end
