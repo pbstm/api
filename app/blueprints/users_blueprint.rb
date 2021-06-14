@@ -10,5 +10,6 @@ class UsersBlueprint < Blueprinter::Base
     field :created_at
     field :updated_at
     field :avatar_url
+    field :type
   end
 end
