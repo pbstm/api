@@ -1,0 +1,9 @@
+en:
+  active_interaction:
+    errors:
+      models:
+        users/create_user:
+          attributes:
+            type:
+              wrong : wrong
+
