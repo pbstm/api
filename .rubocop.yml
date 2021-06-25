@@ -1,6 +1,7 @@
 require: rubocop-performance
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 3.0.0
   Exclude:
     - db/schema.rb

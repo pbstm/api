@@ -5,7 +5,7 @@ RSpec.describe 'POST /api/v1/sign_in', type: :request do
   include Docs::V1::Users::Sign_in
 
   let!( :user ) { create :user }
-  let!( :params ) { { email: user.email, password: '123123' } }
+  let( :params ) { { email: user.email, password: '123123' } }
 
   context 'return when there are no errors ' do
     before { post_json '/api/v1/sign_in', params: params }
@@ -15,9 +15,19 @@ RSpec.describe 'POST /api/v1/sign_in', type: :request do
     it { is_expected.to have_http_status( :ok ) }
 
     context 'with json' do
+      let( :params ) { { email: user.email, password: '123123', type: 'Photographer' } }
       subject { json }
 
-      it 'returns success', :dox do
+      it 'returns success with type Photographer', :dox do
+        is_expected.to include( 'success' => true )
+      end
+    end
+
+    context 'with json' do
+      let( :params ) { { email: user.email, password: '123123' } }
+      subject { json }
+
+      it 'returns success without type, default type Customer', :dox do
         is_expected.to include( 'success' => true )
       end
     end
@@ -71,8 +81,22 @@ RSpec.describe 'POST /api/v1/sign_in', type: :request do
           'success' => false,
           'errors' => [
             {
-            'key' => 'login',
-            'messages' => [ 'Login wrong email or password' ]
+            'key' => 'invalid',
+            'messages' => [ 'Invalid email or password' ]
+            }
+          ]
+        )
+      end
+
+      it 'when type user is incorrect' do
+        params[ :type ] = 'asdasd'
+        post_json '/api/v1/sign_in', params: params
+        is_expected.to eq(
+          'success' => false,
+          'errors' => [
+            {
+              'key' => 'type',
+              'messages' => [ 'Type is invalid' ]
             }
           ]
         )
