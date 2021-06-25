@@ -9,8 +9,7 @@ RSpec.describe 'POST /api/v1/sign_up', type: :request do
       name: Faker::Name.name,
       email: Faker::Internet.unique.email,
       password: '123123',
-      password_confirmation: '123123',
-      type: 'Customer'
+      password_confirmation: '123123'
     }
   end
   context 'return when there are no errors ' do
@@ -23,37 +22,8 @@ RSpec.describe 'POST /api/v1/sign_up', type: :request do
     context 'with json' do
       subject { json }
 
-      it 'returns success with type Customer', :dox do
-        user = Customer.last
-        is_expected.to eq(
-          'success' => true,
-          'user' => {
-            'id' => user.id,
-            'name' => user.name,
-            'email' => user.email,
-            'updated_at' => rfc3339( user.updated_at ),
-            'created_at' => rfc3339( user.created_at ),
-            'avatar_url' => user.avatar.url,
-            'type' => user.type
-          }
-        )
-      end
-    end
-
-    context 'with json' do
-      let( :params ) do
-        {
-          name: Faker::Name.name,
-          email: Faker::Internet.unique.email,
-          password: '123123',
-          password_confirmation: '123123',
-          type: 'Photographer'
-        }
-      end
-      subject { json }
-
-      it 'returns success with type Photographer', :dox do
-        user = Photographer.last
+      it 'returns success', :dox do
+        user = User.last
         is_expected.to eq(
           'success' => true,
           'user' => {
@@ -176,20 +146,6 @@ RSpec.describe 'POST /api/v1/sign_up', type: :request do
             {
               'key' => 'email',
               'messages' => [ 'Email is invalid' ]
-            }
-          ]
-        )
-      end
-
-      it 'when type user is incorrect' do
-        params[ :type ] = 'asdasd'
-        post_json '/api/v1/sign_up', params: params
-        is_expected.to eq(
-          'success' => false,
-          'errors' => [
-            {
-              'key' => 'type',
-              'messages' => [ 'Type wrong' ]
             }
           ]
         )

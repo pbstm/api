@@ -2,8 +2,8 @@ en:
   active_interaction:
     errors:
       models:
-        users/create_user:
+        create_jwt_token:
           attributes:
-            type:
-              wrong : wrong
+            invalid:
+              login : email or password
 

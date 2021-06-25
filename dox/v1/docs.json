@@ -29,24 +29,13 @@
           "content": {
             "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
               "examples": {
-                "returns success with type Customer": {
-                  "summary": "returns success with type Customer",
+                "returns success": {
+                  "summary": "returns success",
                   "value": {
-                    "name": "Mrs. Kori Lind",
-                    "email": "minh_kemmer@collins.org",
+                    "name": "Elliot Walsh",
+                    "email": "clinton.reilly@abernathy-turner.com",
                     "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "Customer"
-                  }
-                },
-                "returns success with type Photographer": {
-                  "summary": "returns success with type Photographer",
-                  "value": {
-                    "name": "Manual Cartwright",
-                    "email": "marquetta.wyman@zboncak-will.co",
-                    "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "Photographer"
+                    "password_confirmation": "123123"
                   }
                 },
                 "is expected to respond with status code :unprocessable_entity (422)": {
@@ -58,90 +47,72 @@
                   "summary": "without name",
                   "value": {
                     "name": "",
-                    "email": "drew@pacocha.org",
+                    "email": "micki@thiel-gleichner.com",
                     "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "Customer"
+                    "password_confirmation": "123123"
                   }
                 },
                 "without password": {
                   "summary": "without password",
                   "value": {
-                    "name": "Tereasa Murazik",
-                    "email": "candie_kerluke@walter.co",
+                    "name": "Prof. Jalisa Walsh",
+                    "email": "carroll@yost.com",
                     "password": "",
-                    "password_confirmation": "123123",
-                    "type": "Customer"
+                    "password_confirmation": "123123"
                   }
                 },
                 "when the password is less than 6 characters": {
                   "summary": "when the password is less than 6 characters",
                   "value": {
-                    "name": "Dr. Beau Johns",
-                    "email": "gale_harvey@moen.co",
+                    "name": "Shella Will",
+                    "email": "tamika@sawayn.biz",
                     "password": "12345",
-                    "password_confirmation": "12345",
-                    "type": "Customer"
+                    "password_confirmation": "12345"
                   }
                 },
                 "without password_confirmation": {
                   "summary": "without password_confirmation",
                   "value": {
-                    "name": "Dottie Leannon",
-                    "email": "alton@schinner.info",
+                    "name": "Adolfo Cummings",
+                    "email": "brice@gutmann.io",
                     "password": "123123",
-                    "password_confirmation": "",
-                    "type": "Customer"
+                    "password_confirmation": ""
                   }
                 },
                 "when the password is more than 72 characters": {
                   "summary": "when the password is more than 72 characters",
                   "value": {
-                    "name": "Daron Mayer",
-                    "email": "jake@willms.com",
+                    "name": "Muoi Raynor",
+                    "email": "elvina.reilly@ratke.info",
                     "password": "1111111111111111111111111111111111111111111111111111111111111111111111111",
-                    "password_confirmation": "1111111111111111111111111111111111111111111111111111111111111111111111111",
-                    "type": "Customer"
+                    "password_confirmation": "1111111111111111111111111111111111111111111111111111111111111111111111111"
                   }
                 },
                 "when the password is more than 511 characters": {
                   "summary": "when the password is more than 511 characters",
                   "value": {
-                    "name": "Maryland Mitchell CPA",
-                    "email": "elmira_leannon@morissette.name",
+                    "name": "Dr. Debrah Howe",
+                    "email": "cherilyn.breitenberg@hodkiewicz-wiza.co",
                     "password": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
-                    "password_confirmation": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
-                    "type": "Customer"
+                    "password_confirmation": "11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111"
                   }
                 },
                 "when the email is incorrect": {
                   "summary": "when the email is incorrect",
                   "value": {
-                    "name": "Archie Ratke",
+                    "name": "Bruce Miller DVM",
                     "email": "asdasd",
                     "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "Customer"
-                  }
-                },
-                "when type user is incorrect": {
-                  "summary": "when type user is incorrect",
-                  "value": {
-                    "name": "Jorge Prohaska",
-                    "email": "dwight@volkman-blick.net",
-                    "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "asdasd"
+                    "password_confirmation": "123123"
                   }
                 },
                 "when email is already in use ": {
                   "summary": "when email is already in use ",
                   "value": {
-                    "name": "Raymond Hammes",
-                    "email": "sharice@franecki-spencer.com",
+                    "name": "Jimmy Zulauf",
+                    "email": "jamaal.will@heathcote.io",
                     "password": "123123",
-                    "password_confirmation": "123123",
-                    "type": "Customer"
+                    "password_confirmation": "123123"
                   }
                 }
               }
@@ -154,33 +125,18 @@
             "content": {
               "application/json; charset=utf-8": {
                 "examples": {
-                  "returns success with type Customer": {
-                    "summary": "returns success with type Customer",
+                  "returns success": {
+                    "summary": "returns success",
                     "value": {
                       "success": true,
                       "user": {
                         "id": 1,
-                        "name": "Mrs. Kori Lind",
-                        "email": "minh_kemmer@collins.org",
-                        "created_at": "2021-06-14T17:47:14+00:00",
-                        "updated_at": "2021-06-14T17:47:14+00:00",
+                        "name": "Elliot Walsh",
+                        "email": "clinton.reilly@abernathy-turner.com",
+                        "created_at": "2021-06-25T22:39:57+00:00",
+                        "updated_at": "2021-06-25T22:39:57+00:00",
                         "avatar_url": null,
-                        "type": "Customer"
-                      }
-                    }
-                  },
-                  "returns success with type Photographer": {
-                    "summary": "returns success with type Photographer",
-                    "value": {
-                      "success": true,
-                      "user": {
-                        "id": 2,
-                        "name": "Manual Cartwright",
-                        "email": "marquetta.wyman@zboncak-will.co",
-                        "created_at": "2021-06-14T17:47:14+00:00",
-                        "updated_at": "2021-06-14T17:47:14+00:00",
-                        "avatar_url": null,
-                        "type": "Photographer"
+                        "type": "User"
                       }
                     }
                   }
@@ -225,12 +181,6 @@
                           "key": "password_confirmation",
                           "messages": [
                             "Password confirmation is required"
-                          ]
-                        },
-                        {
-                          "key": "type",
-                          "messages": [
-                            "Type is required"
                           ]
                         }
                       ]
@@ -335,20 +285,6 @@
                       ]
                     }
                   },
-                  "when type user is incorrect": {
-                    "summary": "when type user is incorrect",
-                    "value": {
-                      "success": false,
-                      "errors": [
-                        {
-                          "key": "type",
-                          "messages": [
-                            "Type wrong"
-                          ]
-                        }
-                      ]
-                    }
-                  },
                   "when email is already in use ": {
                     "summary": "when email is already in use ",
                     "value": {
@@ -391,7 +327,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjR9.zyHFrQRqP0ymbLK1vnx028YRhMub_VcXyvkcykMAq1U"
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjN9.D7ps5D-TNBHiIMzjhmIJoN8CJYVZ_QJH0c3p4cWbdxQ"
           },
           {
             "name": "Accept",
@@ -492,10 +428,18 @@
           "content": {
             "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5": {
               "examples": {
-                "returns success": {
-                  "summary": "returns success",
+                "returns success with type Photographer": {
+                  "summary": "returns success with type Photographer",
                   "value": {
-                    "email": "treva.gislason@connelly-littel.co",
+                    "email": "merle@schaefer-jaskolski.org",
+                    "password": "123123",
+                    "type": "Photographer"
+                  }
+                },
+                "returns success without type, default type Customer": {
+                  "summary": "returns success without type, default type Customer",
+                  "value": {
+                    "email": "caryn_baumbach@wehner-jacobson.org",
                     "password": "123123"
                   }
                 },
@@ -513,14 +457,22 @@
                 "without password": {
                   "summary": "without password",
                   "value": {
-                    "email": "odis@marvin.biz"
+                    "email": "dewitt@kohler-kozey.com"
                   }
                 },
                 "when password or email incorrect": {
                   "summary": "when password or email incorrect",
                   "value": {
-                    "email": "tanya@hettinger-pollich.biz",
+                    "email": "danial_trantow@waelchi.org",
                     "password": "xxx"
+                  }
+                },
+                "when type user is incorrect": {
+                  "summary": "when type user is incorrect",
+                  "value": {
+                    "email": "susana@weimann.org",
+                    "password": "123123",
+                    "type": "asdasd"
                   }
                 }
               }
@@ -533,11 +485,18 @@
             "content": {
               "application/json; charset=utf-8": {
                 "examples": {
-                  "returns success": {
-                    "summary": "returns success",
+                  "returns success with type Photographer": {
+                    "summary": "returns success with type Photographer",
                     "value": {
                       "success": true,
-                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjYsImV4cCI6MTYyNDEyNDgzNH0.v1M4AJ78Mh3pj9Hf4uYzcQL5BtIn3nxYFIdWOWMzOcg"
+                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjUsImV4cCI6MTYyNTA5Mjc5OH0.2cp6l3d6-C-9Zmv0V1S1Srn2QTMEyRhSpddmIx5wgFM"
+                    }
+                  },
+                  "returns success without type, default type Customer": {
+                    "summary": "returns success without type, default type Customer",
+                    "value": {
+                      "success": true,
+                      "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjYsImV4cCI6MTYyNTA5Mjc5OH0.bwvBuG0ih4XZPBZtKs3xMDdDUhDMGpBkJz8_gAANMqM"
                     }
                   }
                 }
@@ -608,9 +567,23 @@
                       "success": false,
                       "errors": [
                         {
-                          "key": "login",
+                          "key": "invalid",
                           "messages": [
-                            "Login wrong email or password"
+                            "Invalid email or password"
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  "when type user is incorrect": {
+                    "summary": "when type user is incorrect",
+                    "value": {
+                      "success": false,
+                      "errors": [
+                        {
+                          "key": "type",
+                          "messages": [
+                            "Type is invalid"
                           ]
                         }
                       ]
@@ -639,7 +612,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjExfQ.q-hJQEZtnGZgH4ne8pnS4A4nBWUfHUdKNz1qJx4CJp0"
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEyfQ.tE2mlOK8gjX0lij7_Ics2UZbfqYLppHs7qsMPHuzAE4"
           },
           {
             "name": "Accept",
@@ -658,13 +631,13 @@
                     "value": {
                       "success": true,
                       "user": {
-                        "id": 11,
-                        "name": "Estell Douglas",
-                        "email": "fermin_ondricka@weimann.io",
-                        "created_at": "2021-06-14T17:47:15+00:00",
-                        "updated_at": "2021-06-14T17:47:15+00:00",
-                        "avatar_url": "http://localhost:3010/uploads/user/avatar/11/7d5f0166dc9289b30f3c2f0ccd21c9b1518bd5a0.jpg",
-                        "type": "User"
+                        "id": 12,
+                        "name": "Eddy Quitzon",
+                        "email": "len@haag.biz",
+                        "created_at": "2021-06-25T22:39:58+00:00",
+                        "updated_at": "2021-06-25T22:39:58+00:00",
+                        "avatar_url": "http://localhost:3010/uploads/customer/avatar/12/7d5f0166dc9289b30f3c2f0ccd21c9b1518bd5a0.jpg",
+                        "type": "Customer"
                       }
                     }
                   }
@@ -696,7 +669,7 @@
           {
             "name": "Authorization",
             "in": "header",
-            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEyfQ.tE2mlOK8gjX0lij7_Ics2UZbfqYLppHs7qsMPHuzAE4"
+            "example": "eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEzfQ.XsmHw5f4Q6F7lErivZT9lG5l-VtFO0GLV5n86rai-rs"
           },
           {
             "name": "Accept",
@@ -710,7 +683,7 @@
               "examples": {
                 "returns with params": {
                   "summary": "returns with params",
-                  "value": "{\n  \"name\": \"vasya\",\n  \"email\": \"vasya@mail.com\",\n  \"current_password\": \"123123\",\n  \"password\": \"123qwe\",\n  \"password_confirmation\": \"123qwe\",\n  \"avatar\": {\n    \"filename\": \"test.jpg\",\n    \"type\": \"text/plain\",\n    \"name\": \"avatar\",\n    \"tempfile\": \"#<File:0x000055faa07f4a90>\",\n    \"head\": \"Content-Disposition: form-data; name=\\\"avatar\\\"; filename=\\\"test.jpg\\\"\\r\\nContent-Type: text/plain\\r\\nContent-Length: 107\\r\\n\"\n  }\n}"
+                  "value": "{\n  \"name\": \"vasya\",\n  \"email\": \"vasya@mail.com\",\n  \"current_password\": \"123123\",\n  \"password\": \"123qwe\",\n  \"password_confirmation\": \"123qwe\",\n  \"avatar\": {\n    \"filename\": \"test.jpg\",\n    \"type\": \"text/plain\",\n    \"name\": \"avatar\",\n    \"tempfile\": \"#<File:0x000055aac8a05410>\",\n    \"head\": \"Content-Disposition: form-data; name=\\\"avatar\\\"; filename=\\\"test.jpg\\\"\\r\\nContent-Type: text/plain\\r\\nContent-Length: 107\\r\\n\"\n  }\n}"
                 },
                 "update email without current_password": {
                   "summary": "update email without current_password",

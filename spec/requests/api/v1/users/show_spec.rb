@@ -4,7 +4,7 @@ RSpec.describe 'GET /api/v1/profile/show', type: :request do
   include Docs::V1::Users::Api
   include Docs::V1::Users::Show
 
-  let!( :user ) { create :user }
+  let!( :user ) { create :customer }
   let( :token ) { jwt_token uid: user.id }
   let( :auth_headers ) { { 'Authorization' => token } }
 
