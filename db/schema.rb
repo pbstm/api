@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_161106) do
+ActiveRecord::Schema.define(version: 2021_07_01_151730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "photo_sessions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "photographer_id"
+    t.bigint "foreign_key_to_users"
+    t.string "cover"
+    t.string "mount_image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
