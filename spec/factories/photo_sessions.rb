@@ -3,11 +3,8 @@ FactoryBot.define do
     title { ' MyString ' }
     description { 'MyText' }
     photographer_id { '' }
-    foreign_key { 'MyString' }
-    to { 'MyString' }
-    user { '' }
+    foreign_key_to_users { '' }
     cover { 'MyString' }
-    mount { 'MyString' }
-    image { 'MyString' }
+    mount_image { 'MyString' }
   end
 end
