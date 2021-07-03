@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_161106) do
+ActiveRecord::Schema.define(version: 2021_07_03_073836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: :cascade do |t|
+    t.string "city", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photo_session_photos", force: :cascade do |t|
+    t.string "photo", null: false
+    t.bigint "photo_session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photo_session_id"], name: "index_photo_session_photos_on_photo_session_id"
+  end
+
+  create_table "photo_sessions", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.string "cover"
+    t.bigint "photographer_id", null: false
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_photo_sessions_on_location_id"
+    t.index ["photographer_id"], name: "index_photo_sessions_on_photographer_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -26,4 +52,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_161106) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "photo_session_photos", "photo_sessions", on_delete: :cascade
+  add_foreign_key "photo_sessions", "locations", on_delete: :cascade
+  add_foreign_key "photo_sessions", "users", column: "photographer_id"
 end
