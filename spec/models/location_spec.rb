@@ -6,4 +6,8 @@ RSpec.describe Location, type: :model do
   describe 'validations' do
     it { should validate_presence_of :city }
   end
+
+  describe 'associations' do
+    it { should have_one( :photo_session ) }
+  end
 end
