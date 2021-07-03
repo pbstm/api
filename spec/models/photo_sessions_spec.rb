@@ -11,5 +11,6 @@ RSpec.describe PhotoSession, type: :model do
   describe 'associations' do
     it { should belong_to :location }
     it { should belong_to :photographer }
+    it { should have_many( :photo_session_photos ).dependent :destroy }
   end
 end

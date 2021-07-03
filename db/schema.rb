@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_055158) do
+ActiveRecord::Schema.define(version: 2021_07_03_073836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2021_07_03_055158) do
     t.string "city", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photo_session_photos", force: :cascade do |t|
+    t.string "photo", null: false
+    t.bigint "photo_session_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["photo_session_id"], name: "index_photo_session_photos_on_photo_session_id"
   end
 
   create_table "photo_sessions", force: :cascade do |t|
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_07_03_055158) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "photo_session_photos", "photo_sessions", on_delete: :cascade
   add_foreign_key "photo_sessions", "locations", on_delete: :cascade
   add_foreign_key "photo_sessions", "users", column: "photographer_id"
 end
