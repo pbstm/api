@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :name, presence: true
   validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
+
+  scope :customer, -> { where( type: 'Customer' ) }
+  scope :photographer, -> { where( type: 'Photographer' ) }
 end
