@@ -28,6 +28,8 @@ gem 'carrierwave', '~> 2.0'
 
 gem 'mini_magick'
 
+gem 'slim'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -36,6 +38,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+
+# ActiveAdmin
+gem 'devise'
+gem 'activeadmin'
+gem 'activeadmin_addons'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -59,4 +66,11 @@ group :test do
   gem 'database_cleaner'
   gem 'webmock'
   gem 'dox'
+end
+
+group :assets do
+    gem 'sass-rails'
+    gem 'coffee-rails'
+    gem 'uglifier'
+    gem 'bootstrap-sass'
 end
