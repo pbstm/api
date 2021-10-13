@@ -1,0 +1,46 @@
+version: '3.9'
+
+x-rails-env: &rails-env
+  RAILS_ENV: development
+
+  DB_HOST: db-rails
+  DB_PORT: 5432
+  DB_NAME: pbs
+  DB_USER: user
+  DB_PASSWORD: password
+
+services:
+  rails:
+    env_file: [ .env ]
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+    volumes: [ '.:/app' ]
+    ports: [ '3000:3000' ]
+    depends_on:
+      - db-rails
+    networks:
+      - database-rails
+    environment:
+      <<: *rails-env
+      PORT: 3000
+    command: >
+      sh -c "rm -rf /app/tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0 -p 3000"
+
+  db-rails:
+    image: postgres:13.2-alpine
+    volumes: [ 'pbs-db-rails:/var/lib/postgresql/data' ]
+    networks: [ database-rails ]
+    environment:
+      POSTGRES_DB: pbs
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+volumes:
+  pbs-db-rails:
+    name: pbs-db-rails
+
+networks:
+  database-rails:
+    name: pbs-database-rails
