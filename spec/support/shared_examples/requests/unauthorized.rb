@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.shared_examples 'unauthorized' do | method, path |
+RSpec.shared_examples 'unauthorized' do |method, path|
   let( :params ) { {} }
 
   context 'when account is not authorized' do

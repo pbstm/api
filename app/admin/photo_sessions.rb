@@ -10,7 +10,7 @@ ActiveAdmin.register PhotoSession do
     actions
   end
 
-  form do | f |
+  form do |f|
     f.inputs do
       f.input :title
       f.input :location, as: :select, include_blank: false, collection: Location.pluck( :city, :id )
@@ -19,7 +19,7 @@ ActiveAdmin.register PhotoSession do
       f.input :description
     end
 
-    f.has_many :photo_session_photos, allow_destroy: true do | ff |
+    f.has_many :photo_session_photos, allow_destroy: true do |ff|
       ff.inputs 'Photos' do
         if ff.object.new_record?
           ff.input :photo
@@ -39,12 +39,12 @@ ActiveAdmin.register PhotoSession do
       row :photographer
       row :description
       row :created_at
-      row( :cover ) { | photo_session | photo_session.cover.present? ? image_tag( photo_session.cover.url, width: '300' ) : nil }
+      row( :cover ) { |photo_session| photo_session.cover.present? ? image_tag( photo_session.cover.url, width: '300' ) : nil }
     end
 
     panel 'Photos' do
       table_for photo_session.photo_session_photos do
-        column( :photo ) { | photo_session_photo | image_tag photo_session_photo.photo.url, width: '500' }
+        column( :photo ) { |photo_session_photo| image_tag photo_session_photo.photo.url, width: '500' }
       end
     end
   end

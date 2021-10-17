@@ -20,7 +20,7 @@ module Api
     # and only comments remain the same as if they were set in stone.
     # For my friend Alexei, perhaps it all looks different, and therefore you are reading this explanation.
     def render_resource_errors( resource, status: :unprocessable_entity )
-      result = resource.errors.attribute_names.map { | attr | { key: attr, messages: resource.errors.full_messages_for( attr ) } }
+      result = resource.errors.attribute_names.map { |attr| { key: attr, messages: resource.errors.full_messages_for( attr ) } }
       render_errors errors: result, status: status
     end
 

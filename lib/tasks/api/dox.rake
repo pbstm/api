@@ -3,7 +3,7 @@ namespace :api do
     subtitle = version || namespace
     title = "#{ namespace }_#{ subtitle }"
 
-    RSpec::Core::RakeTask.new title do | task |
+    RSpec::Core::RakeTask.new title do |task|
       pattern = "spec/requests/#{ namespace }"
       pattern << "/#{ version }" if version
 

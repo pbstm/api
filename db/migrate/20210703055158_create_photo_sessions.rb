@@ -1,6 +1,6 @@
 class CreatePhotoSessions < ActiveRecord::Migration[ 6.1 ]
   def change
-    create_table :photo_sessions do | t |
+    create_table :photo_sessions do |t|
       t.string :title, null: false
       t.text :description, null: false
       t.string :cover

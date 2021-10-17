@@ -18,7 +18,7 @@ ActiveAdmin.register User do
   filter :created_at
   filter :updated_at
 
-  form do | f |
+  form do |f|
     f.inputs do
       f.input :name
       f.input :email
@@ -35,7 +35,7 @@ ActiveAdmin.register User do
       row :type
       row :created_at
       row :updated_at
-      row( :avatar ) { | user | user.avatar.present? ? image_tag( user.avatar.url, size: '300x300' ) : nil }
+      row( :avatar ) { |user| user.avatar.present? ? image_tag( user.avatar.url, size: '300x300' ) : nil }
     end
   end
 end

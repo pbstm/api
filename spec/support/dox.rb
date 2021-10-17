@@ -1,5 +1,5 @@
-RSpec.configure do | config |
-  config.after :each, :dox do | example |
+RSpec.configure do |config|
+  config.after :each, :dox do |example|
     example.metadata[ :request ] = request
     example.metadata[ :response ] = response
 
@@ -15,6 +15,6 @@ RSpec.configure do | config |
   end
 end
 
-Dox.configure do | config |
+Dox.configure do |config|
   config.headers_whitelist = %w[Content-Type Authorization]
 end
